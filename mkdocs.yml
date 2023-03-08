@@ -1,0 +1,101 @@
+site_name: "PowerAPI"
+site_description: "PowerAPI"
+repo_url: https://github.com/powerapi-ng/powerapi
+copyright: Copyright &copy; 2023 INRIA, University of Lille
+
+markdown_extensions:
+  - tables
+  - attr_list
+  - md_in_html
+  - pymdownx.betterem
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.critic
+  - pymdownx.keys
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+
+
+theme:
+  # Used theme
+  name: material
+
+  # Overrides files
+  custom_dir: overrides
+
+  # favicon to show on the browser
+  favicon: images/favicon.ico
+  # Logo used in the header
+  logo: assets/images/PowerAPI-logo.png
+
+
+  palette:
+    # scheme: slate
+    #accent: light green
+    # Palette toggle for light mode
+    - scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+      primary: red
+      accent: green
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+      primary: red
+      accent: green
+
+  icon:
+    repo: fontawesome/brands/github
+  features:
+    # - navigation.instant
+    - navigation.tabs
+    - navigation.path
+    - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
+    - navigation.sections
+    - content.code.copy
+
+nav:
+- Home: index.md
+- Getting Started: getting_started.md
+- Sensors:
+  - HWPC Sensor: sensors/hwpc-sensor.md
+#  - Procfs Sensor: sensors/procfs-sensor.md
+- Formulas:
+  - RAPL: formulas/rapl.md
+  - SmartWatts: formulas/smartwatts.md
+- Sources/Destinations: database/sources_destinations.md
+# - Jouleit: jouleit/jouleit.md
+- Guides:
+  - Reports: guides/reports.md
+  - Formula Configuration Files: guides/configuration_files.md
+#  - Formula Creation: guides/formula_creation.md
+  - cgrups Creation: guides/cgroup.md
+  - cgroups V1 Activation: guides/cgroup_v1_activation.md
+  - Grafana: guides/grafana.md
+- Contributing: contributing.md
+- Publications: publications.md
+- Credits and Licence: credits_licence.md
+
+# plugins:
+#  - social
+
+extra:
+  version:
+    provider: mike
+
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/powerapi-ng/powerapi
+    - icon: fontawesome/solid/paper-plane
+      link: mailto:powerapi-staff@inria.fr
