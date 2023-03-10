@@ -21,6 +21,9 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
 
 
 theme:
@@ -70,21 +73,26 @@ theme:
 nav:
 - Home: index.md
 - Getting Started: getting_started.md
-- Sensors:
-  - HWPC Sensor: sensors/hwpc-sensor.md
+- Reference:
+  - Overview: reference/overview.md
+  - Sensors:
+    - HWPC Sensor: reference/sensors/hwpc-sensor.md
 #  - Procfs Sensor: sensors/procfs-sensor.md
-- Formulas:
-  - RAPL: formulas/rapl.md
-  - SmartWatts: formulas/smartwatts.md
-- Sources/Destinations: database/sources_destinations.md
+  - Formulas:
+    - RAPL: reference/formulas/rapl.md
+    - SmartWatts: reference/formulas/smartwatts.md
+    - Configuration Files: reference/formulas/configuration_files.md
+  - Sources/Destinations:
+    - Description: reference/database/sources_destinations.md
+  - Reports:
+    - Description: reference/reports/reports.md
+  - Grafana:
+    - Description: reference/grafana/grafana.md
+  - cgroups:
+    - Creation: reference/cgroup/cgroup.md
+    - Activation: reference/cgroup/cgroup_v1_activation.md
 # - Jouleit: jouleit/jouleit.md
-- Guides:
-  - Reports: guides/reports.md
-  - Formula Configuration Files: guides/configuration_files.md
 #  - Formula Creation: guides/formula_creation.md
-  - cgrups Creation: guides/cgroup.md
-  - cgroups V1 Activation: guides/cgroup_v1_activation.md
-  - Grafana: guides/grafana.md
 - Contributing: contributing.md
 - Publications: publications.md
 - Credits and Licence: credits_licence.md
