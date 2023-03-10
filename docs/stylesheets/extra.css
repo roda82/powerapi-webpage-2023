@@ -84,6 +84,6 @@
   justify-content: center;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 400px) {
   .grid-container { grid-template-columns: repeat(3, 1fr); }
 }
