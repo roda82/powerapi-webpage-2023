@@ -59,6 +59,10 @@
  grid-template-columns: auto auto auto;
  padding: 10px;
  column-gap: 10px;
+ width: 100%;
+ max-width: 61rem;
+ margin-right: auto;
+ margin-left: auto;
 }
 
 
