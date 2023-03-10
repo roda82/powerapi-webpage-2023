@@ -1,75 +1,65 @@
 ---
 hide:
   - navigation
-  #- toc
+  - toc
 #template: intro.html
 ---
+
+<div class="tx-hero markdown" markdown>
+
+  <div class="tx-hero__content" markdown>
+
 # PowerAPI
-The goal of this project is to provide a set of tools to go forward a greener
-computing.
-The idea is to provide software-defined PowerMeters to mesure the power
-consumption of programs.
-The core of this project is the [PowerAPI](https://github.com/powerapi-ng/powerapi) toolkit for building
-such PowerMeters.
+
+Measuring Power Consumption of your Applications.
 
 [Geting started](getting_started){ .md-button .md-button--primary}
-[:fontawesome-brands-github: GitHub](https://github.com/powerapi-ng/){ .md-button}
+[:fontawesome-brands-github: GitHub](https://github.com/powerapi-ng/){ .md-button}  
 
-## Software PowerMeters
+  </div>
 
-A software PowerMeter is an application built with the PowerAPI components that can
-measure the power consumption of software running on a single machine or on a
-cluster of machine.
+![PowerAPI Overview](assets/images/intro/overview.png){ width="800px" align=right .tx-hero__image}
 
-The Figure below depicts the global architecture of a software PowerMeter in PowerAPI.
-![PowerMeter Architecture](assets/images/intro/global-architecture.png){ width="1000px" }
+</div>
+---
 
-<!--img
-src="assets/images/intro/global-architecture.png"
-alt="PowerMeter Architecture" width="1000px"-->
+<div class="grid cards" markdown>
 
-A PowerMeter has two components, a Sensor and a Formula, used to
-produce an estimation of the power consumption of a monitored software.
+-   :material-lightning-bolt-circle:{ .lg .middle } __Powermeter as Software__
 
-## Sensor
+---
 
-The Sensor is an independent software that collects raw data (metrics) correlated with the power consumption of the
-monitored software.
+You don't need any additional physical Powermeter or hardware in order to estimate power consumption of your applications.
+PowerAPI toolkit allows you to use Software Powermeters providing power consumption at different granularity levels: *global*, *virtual machine*, *container* *application*, *processus*, *code*.
 
-Data are collected by querying the hardware’s machine that hosts the monitored
-software. The sensor must be executed on the same machine as the monitored
-software. The data are collected throughout the duration of the software. For
-this reason, the sensor must operate in parallel.
+---
 
-Collected raw data are stored in an external Source to make the data available to
-the Formula. This Source may be hosted on an other machine.
+-   :fontawesome-solid-arrow-up-right-from-square:{ .lg .middle } __Extensible__
 
-### Usage
+---
 
-Because they collect from different hardware, each Sensor is very different
-from one another. Currently, PowerAPI proposes two Sensors: [HWPC](sensors/hwpc-sensor.md) and [Procfs](sensors/procfs-sensor.md).
-Refer to each Sensor documentation to know how to use them.
+The actor based architecture of PowerAPI toolkit enables you to create customized Powermeters by adding new mechanisms for storing metrics and estimations as well as for computing the latter ones.    
 
-## Formula
+---
 
-A Formula is a computational module that computes an estimation of the power
-consumption of monitored software from the data collected by the sensor.
+- :material-open-source-initiative:{ .lg .middle } __Open Source__
 
-A Formula has two working modes:
+---
 
-- `stream` mode where the Formula read the data from the Sensor as they are
-  produced (in realtime).
+PowerAPI toolkit is Open Source with a BSD 3-Clause License.
+Therefore, you can easily contribute to improve the toolkit.
+</div>
 
-- `post-mortem` mode where the Formula analyses the data already collected by the Sensor in a past monitoring phase.
+---
 
-### Usage
+# Sponsors
 
-Currently, there are two Formulas: [RAPL](formulas/rapl.md) and [SmartWatts](formulas/smartwatts.md).
-Refer to each Formula documentation to know how to use them.
+![Inria](assets/images/intro/inria.png){ width="309px" }
+![Orange Labs](assets/images/intro/logo-orange.png){ width="338px" }
+![OVH Cloud](assets/images/intro/ovh-cloud.jpeg){ width="225px" }
+![Davidson Consulting](assets/images/intro/davidson.png){ width="429px" }
 
-## Consortium
-
-<table style="border:0px;margin-left:auto; margin-right:auto;">
+<!-- table style="border:0px;margin-left:auto; margin-right:auto;">
     <tbody>
         <tr>
             <td align="center" style="border:0px;">
@@ -89,7 +79,7 @@ Refer to each Formula documentation to know how to use them.
             </td>
         </tr>
     </tbody>
-</table>
+</table-->
 
 ## Mailing list
 
