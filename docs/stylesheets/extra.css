@@ -57,3 +57,25 @@
  padding: 10px;
  column-gap: 10px;
 }
+
+
+element {
+}
+
+.sponsors {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 61rem;
+  justify-content: space-between;
+}
+
+.sponsor {
+  display: flex;
+  padding: 30px;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}

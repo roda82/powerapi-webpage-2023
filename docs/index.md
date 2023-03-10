@@ -48,32 +48,21 @@ Therefore, you can easily contribute to improve the toolkit.
 
 # Sponsors
 
+<div class="sponsors" markdown>
+  <div class="sponsor" markdown>  
 ![Inria](assets/images/intro/inria.png){ width="309px" }
+  </div>
+  <div class="sponsor" markdown>  
 ![Orange Labs](assets/images/intro/logo-orange.png){ width="338px" }
+  </div>
+  <div class="sponsor" markdown>  
 ![OVH Cloud](assets/images/intro/ovh-cloud.jpeg){ width="225px" }
+  </div>
+  <div class="sponsor" markdown>  
 ![Davidson Consulting](assets/images/intro/davidson.png){ width="429px" }
-
-<!-- table style="border:0px;margin-left:auto; margin-right:auto;">
-    <tbody>
-        <tr>
-            <td align="center" style="border:0px;">
-              <div style="border:0px;width:309px;margin-left:auto;margin-right:auto;"><img src="assets/images/intro/inria.png" alt="Inria"></div>
-            </td>
-            <td align="center" style="border:0px;">
-              <div style="border:0px;width:338px;margin-left:auto;margin-right:auto;"><img src="assets/images/intro/logo-orange.png" alt="Orange Labs"></div>
-            </td>
-            <td align="center" style="border:0px;">
-              <div style="border:0px;width:225px;margin-left:auto;margin-right:auto;"><img src="assets/images/intro/ovh-cloud.jpeg" alt="OVH Cloud"></div>
-            </td>
-        </tr>
-        <tr >
-
-            <td align="center" style="border:0px;" colspan="3">
-              <div style="border:0px;width:429px;margin-left:auto;margin-right:auto;"><img src="assets/images/intro/davidson.png" alt="Davidson Consulting"></div>
-            </td>
-        </tr>
-    </tbody>
-</table-->
+  </div>
+</div>
+---
 
 ## Mailing list
 
