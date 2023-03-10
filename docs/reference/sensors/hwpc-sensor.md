@@ -15,26 +15,25 @@ kernel API) to the real CPU register to read performance counter values.
 
 ## Installation
 
-### From docker
+=== "Docker"
 
-```bash
-docker pull powerapi/hwpc-sensor
-```
+    ```bash
+    docker pull powerapi/hwpc-sensor
+    ```
 
-### From deb file
+=== "Deb file"
 
-Download the `.deb` file from the [latest
-release](https://github.com/powerapi-ng/hwpc-sensor/releases)
+    Download the `.deb` file from the [latest
+    release](https://github.com/powerapi-ng/hwpc-sensor/releases)
 
-Install the sensor with
-```bash
-sudo apt install hwpc-sensor-<version>.deb
-```
+    Install the sensor with
+    ```bash
+    sudo apt install hwpc-sensor-<version>.deb
+    ```
+=== "Binary file"
 
-### Using the binary
-
-You can use the compiled version of the sensor (available
-[here](https://github.com/powerapi-ng/hwpc-sensor/releases))
+    You can use the compiled version of the sensor (available
+    [here](https://github.com/powerapi-ng/hwpc-sensor/releases))
 
 ## Usage
 
@@ -73,7 +72,7 @@ The table below shows the different parameters related to the Sensor Configurati
 |`events`     | `string`   | `e`           | -                                             | List of events to be monitored. As CLI parameter, each event is indicated with `e`                    |
 |`monitoring_type`     | `string` (`MONITOR_ONE_CPU_PER_SOCKET`, `MONITOR_ALL_CPU_PER_SOCKET` )    | `o` (flag)          |  `MONITOR_ALL_CPU_PER_SOCKET`                                             | The monitoring type. If `o` is specified as CLI parameter, `MONITOR_ONE_CPU_PER_SOCKET` is used as type   
 
-### Running the Formula with a Configuration File                 |
+### Running the Formula with a Configuration File
 
 ```json
 {
@@ -110,45 +109,64 @@ The table below shows the different parameters related to the Sensor Configurati
 
 Once you have your configuration file, run HWPCSensor using one of the following command lines, depending on the installation you use:
 
-- via the binary:
+=== "Docker"
 
-  ```sh
-  ./hwpc-sensor --config-file config_file.json
-  ```
+    ```sh
+    docker run --rm  \
+    --net=host \
+    --privileged \
+    --pid=host \
+    -v /sys:/sys \
+    -v /var/lib/docker/containers:/var/lib/docker/containers:ro \
+    -v /tmp/powerapi-sensor-reporting:/reporting \
+    -v $(pwd):/srv \
+    -v $(pwd)/config_file.json:/config_file.json \
+    powerapi/hwpc-sensor --config-file /config_file.json
+    ```
 
-- via docker:
+=== "Binary file"
 
-  ```sh
-  docker run --rm --net=host --privileged --pid=host -v /sys:/sys -v /var/lib/docker/containers:/var/lib/docker/containers:ro -v /tmp/powerapi-sensor-reporting:/reporting -v $(pwd):/srv -v $(pwd)/config_file.json:/config_file.json powerapi/hwpc-sensor --config-file /config_file.json
-  ```
+    ```sh
+    ./hwpc-sensor --config-file config_file.json
+    ```
 
 ### Running the Formula via CLI parameters
 
 In order to run the Sensor without a configuration file, run HWPCSensor using one of the following command lines, depending on the installation you use:
 
-- via the binary:
+=== "Docker"
 
-  ```sh
-  ./hwpc-sensor -n "$(hostname -f)" \
-  -r "mongodb" -U "mongodb://127.0.0.1" -D "db_sensor" -C "report_0" \
-  -s "rapl" -o -e "RAPL_ENERGY_PKG" \
-  -s "msr" -e "TSC" -e "APERF" -e "MPERF" \
-  -c "core" -e "CPU_CLK_THREAD_UNHALTED:REF_P" -e "CPU_CLK_THREAD_UNHALTED:THREAD_P" -e "LLC_MISSES" -e "INSTRUCTIONS_RETIRED"
-  ```
+    ```sh
+    docker run --rm \
+    --net=host \
+    --privileged \
+    --pid=host \
+    -v /sys:/sys \
+    -v /var/lib/docker/containers:/var/lib/docker/containers:ro \
+    -v /tmp/powerapi-sensor-reporting:/reporting \
+    -v $(pwd):/srv \
+    powerapi/hwpc-sensor \
+    -n "$(hostname -f)" \
+    -r "mongodb" -U "mongodb://127.0.0.1" -D "db_sensor" -C "report_0" \
+    -s "rapl" -o -e "RAPL_ENERGY_PKG" \
+    -s "msr" -e "TSC" -e "APERF" -e "MPERF" \
+    -c "core" -e "CPU_CLK_THREAD_UNHALTED:REF_P" -e "CPU_CLK_THREAD_UNHALTED:THREAD_P" -e "LLC_MISSES" -e "INSTRUCTIONS_RETIRED"
+    ```
 
-- via docker:
+=== "Binary file"
 
-  ```sh
-  docker run --rm --net=host --privileged --pid=host -v /sys:/sys -v /var/lib/docker/containers:/var/lib/docker/containers:ro -v /tmp/powerapi-sensor-reporting:/reporting -v $(pwd):/srv powerapi/hwpc-sensor -n "$(hostname -f)" \
-  -r "mongodb" -U "mongodb://127.0.0.1" -D "db_sensor" -C "report_0" \
-  -s "rapl" -o -e "RAPL_ENERGY_PKG" \
-  -s "msr" -e "TSC" -e "APERF" -e "MPERF" \
-  -c "core" -e "CPU_CLK_THREAD_UNHALTED:REF_P" -e "CPU_CLK_THREAD_UNHALTED:THREAD_P" -e "LLC_MISSES" -e "INSTRUCTIONS_RETIRED"
-  ```
+    ```sh
+    ./hwpc-sensor -n "$(hostname -f)" \
+    -r "mongodb" -U "mongodb://127.0.0.1" -D "db_sensor" -C "report_0" \
+    -s "rapl" -o -e "RAPL_ENERGY_PKG" \
+    -s "msr" -e "TSC" -e "APERF" -e "MPERF" \
+    -c "core" -e "CPU_CLK_THREAD_UNHALTED:REF_P" -e "CPU_CLK_THREAD_UNHALTED:THREAD_P" -e "LLC_MISSES" -e "INSTRUCTIONS_RETIRED"
+    ```
+
 
 
 ???+ info "Reports' Storage"
-    Your [`HWPCReports`](../../guides/reports/#hwpc-report) will be stored on MongoDB.
+    Your [`HWPCReports`](../reports/reports.md#hwpc-report) will be stored on MongoDB.
 
 ???+ tip "CLI parameters' names"
     You can only use shortcuts.

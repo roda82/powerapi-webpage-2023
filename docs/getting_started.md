@@ -5,7 +5,7 @@ ready-to-use tools
 
 ???+ info "Source and Destination"
     In order to use any Formula, you need to run a Source and a Destination. The former is used by a Sensor to store metrics. The later allows the Formula to make available the estimations. For starting, you can use [MongoDB](https://hub.docker.com/_/mongo) as Source and [InfluxDB:1.8](https://hub.docker.com/_/influxdb) as Destination by installing them as Docker containers.
-    For more details about Sources and Destinations please check this [section](database/sources_destinations.md).
+    For more details about Sources and Destinations please check this [section](reference/database/sources_destinations.md).
 
 
 ## **RAPL Formula**
@@ -40,7 +40,7 @@ well as a **comptible Intel** or **AMD Processor**. HWPC Sensor will **not work 
 
 
 #### CGroups
-If you need to monitor a process or a group of process via SmartWatts, please follow this [guide](guides/cgroup.md). Please notice that **cgroup V1** is required for HWPC Sensor. If you need to enable this `cgroup` version please follow this [guide](guides/cgroup_v1_activation.md).    
+If you need to monitor a process or a group of process via SmartWatts, please follow this [tutorial](reference/cgroup/cgroup.md). Please notice that **cgroup V1** is required for HWPC Sensor. If you need to enable this `cgroup` version please follow this [tutorial](reference/cgroup/cgroup_v1_activation.md).    
 
 <!---
 ## **Jouleit**

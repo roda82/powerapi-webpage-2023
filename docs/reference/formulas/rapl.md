@@ -15,17 +15,17 @@ global power consumption in a more readable way than raw RAPL.
 
 You can use [the following script](../script/rapl_install.sh) to install RAPL Formula and HWPC Sensor.
 
-### From pypi
+=== "Docker"
 
-```sh
-pip install powerapi
-```
+    ```sh
+    docker pull powerapi/powerapi
+    ```
 
-### From docker
+=== "Pypi"
 
-```sh
-docker pull powerapi/powerapi
-```
+    ```sh
+    pip install powerapi
+    ```
 
 ## Usage
 
@@ -48,7 +48,7 @@ docker run -d --name mongo_source_destination -p 27017:27017 mongo
 
 ### Parameters
 
-Besides the [basic parameters](../guides/configuration_files.md), the following ones are specific to RAPL:
+Besides the [basic parameters](configuration_files.md), the following ones are specific to RAPL:
 
 | Parameter                | Type   | CLI shortcut  | Default Value                                      | Description                             |
 | -------------            | -----  | ------------- | -------------                                      | ------------------------------------    |
@@ -97,34 +97,48 @@ Below an example is provided by using MongoDB as Source and Destination.
 Once you have your configuration file, run RAPL using one of the following command lines, depending on
 the installation you use:
 
-- via pip:
 
-  ```sh
-  python -m powerapi --config-file config_file.json
-  ```
+=== "Docker"
 
-- via docker:
+    ```sh
+    docker run -t \
+    --net=host \
+    -v $(pwd)/config_file.json:/config_file.json \
+    powerapi/powerapi --config-file /config_file.json \
+    ```
 
-  ```sh
-  docker run -t --net=host -v $(pwd)/config_file.json:/config_file.json powerapi/powerapi --config-file /config_file.json
-  ```
+=== "Pip"
+
+    ```sh
+    python -m powerapi --config-file config_file.json
+    ```
 
 ### Running the Formula via CLI parameters
 
 In order to run the Formula without a configuration file, run RAPL using one of the following command lines, depending on
 the installation you use:
 
-- via pip:
+=== "Docker"
 
-  ```sh
-  python -m powerapi --verbose --input mongodb --model HWPCReport --uri mongodb://127.0.0.1 --db test --collection prep --output mongodb --model PowerReport --uri mongodb://127.0.0.1 --db test --collection results --disable-dram-formula --sensor-report-sampling-interval 500
-  ```
+     ```sh
+     docker run -t \
+     --net=host \
+     powerapi/powerapi --verbose \
+     --input mongodb --model HWPCReport --uri mongodb://127.0.0.1 --db test --collection prep \
+     --output mongodb --model PowerReport --uri mongodb://127.0.0.1 --db test --collection results \
+     --disable-dram-formula \
+     --sensor-report-sampling-interval 500
+     ```
 
-- via docker:
+=== "Pip"
 
-   ```sh
-   docker run -t --net=host powerapi/powerapi --verbose --input mongodb --model HWPCReport --uri mongodb://127.0.0.1 --db test --collection prep --output mongodb --model PowerReport --uri mongodb://127.0.0.1 --db test --collection results --disable-dram-formula --sensor-report-sampling-interval 500
-   ```
+    ```sh
+    python -m powerapi --verbose \
+    --input mongodb --model HWPCReport --uri mongodb://127.0.0.1 --db test --collection prep \
+    --output mongodb --model PowerReport --uri mongodb://127.0.0.1 --db test --collection results \
+    --disable-dram-formula \
+    --sensor-report-sampling-interval 500
+    ```
 
 ???+ info "Estimations' Storage"
     Your `PowerReports` will be stored on MongoDB.

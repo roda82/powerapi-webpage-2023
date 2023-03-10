@@ -27,17 +27,15 @@ Software-Defined Power Meter for Containers](https://hal.inria.fr/hal-02470128)
 
 You can use [the following script](../script/smartwatts_install.sh) to install SmartWatts and HWPC Sensor.
 
-### From pypi
+=== "Docker"
+    ```
+    docker pull powerapi/smartwatts-formula
+    ```
+=== "Pypi"
 
-```sh
-pip install smartwatts
-```
-
-### From docker
-
-```
-docker pull powerapi/smartwatts-formula
-```
+    ```sh
+    pip install smartwatts
+    ```
 
 ## Usage
 
@@ -66,7 +64,7 @@ docker run -d --name influx_dest -p 8086:8086 influxdb:1.8
 
 ### Parameters
 
-Besides the [basic parameters](../guides/configuration_files.md), the following ones are specific to SmartWatts:
+Besides the [basic parameters](../formulas/configuration_files.md), the following ones are specific to SmartWatts:
 
 | Parameter                | Type   | CLI shortcut  | Default Value                                      | Description                             |
 | -------------            | -----  | ------------- | -------------                                      | ------------------------------------    |
@@ -129,44 +127,68 @@ script](../script/smartwatts_auto_config.md) in order to generate your configura
 Once you have your configuration file, run SmartWatts using one of the following command lines, depending on
 the installation you use:
 
-- via pip:
+=== "Docker"
 
-  ```sh
-  python -m smartwatts --config-file config_file.json
-  ```
+    ```sh
+    docker run -t \
+    --net=host \
+    -v $(pwd)/config_file.json:/config_file.json \
+    powerapi/smartwatts-formula --config-file /config_file.json
+    ```
 
-- via docker:
+=== "Pip"
 
-   ```sh
-   docker run -t --net=host -v $(pwd)/config_file.json:/config_file.json powerapi/smartwatts-formula --config-file /config_file.json
-   ```
+    ```sh
+    python -m smartwatts --config-file config_file.json
+    ```
 
 ### Running the Formula via CLI parameters
 
 In order to run the Formula without a configuration file, run SmartWatts using one of the following command lines, depending on
 the installation you used:
 
-- via pip:
+=== "Pip"
 
-  ```sh
-  python3 -m smartwatts --verbose --input mongodb --model HWPCReport --uri mongodb://127.0.0.1 --db test --collection prep --output influxdb --model PowerReport --uri 127.0.0.1 --port 8086 --db test_result --cpu-frequency-base 19 --cpu-frequency-min 4 --cpu-frequency-max 42 --cpu-error-threshold 2.0 --disable-dram-formula --sensor-report-sampling-interval 1000 --real-time-mode false
-  ```
+    ```sh
+    python3 -m smartwatts \
+    --verbose \
+    --input mongodb --model HWPCReport --uri mongodb://127.0.0.1 --db test --collection prep \
+    --output influxdb --model PowerReport --uri 127.0.0.1 --port 8086 --db test_result \
+    --cpu-frequency-base 19 \
+    --cpu-frequency-min 4 \
+    --cpu-frequency-max 42 \
+    --cpu-error-threshold 2.0 \
+    --disable-dram-formula \
+    --sensor-report-sampling-interval 1000 \
+    --real-time-mode false
+    ```
 
-- via docker:
+=== "Docker"
 
-   ```sh
-   docker run -t --net=host powerapi/smartwatts-formula --verbose --input mongodb --model HWPCReport --uri mongodb://127.0.0.1 --db test --collection prep --output influxdb --model PowerReport --uri 127.0.0.1 --port 8086 --db test_result --cpu-frequency-base 19 --cpu-frequency-min 4 --cpu-frequency-max 42 --cpu-error-threshold 2.0 --disable-dram-formula --sensor-report-sampling-interval 1000 --real-time-mode false
-   ```
+     ```sh
+     docker run -t \
+     --net=host \
+     powerapi/smartwatts-formula --verbose \
+     --input mongodb --model HWPCReport --uri mongodb://127.0.0.1 --db test --collection prep \
+     --output influxdb --model PowerReport --uri 127.0.0.1 --port 8086 --db test_result \
+     --cpu-frequency-base 19 \
+     --cpu-frequency-min 4 \
+     --cpu-frequency-max 42 \
+     --cpu-error-threshold 2.0 \
+     --disable-dram-formula \
+     --sensor-report-sampling-interval 1000 \
+     --real-time-mode false
+     ```
 
 ???+ info "Estimations' Storage"
-    Your `PowerReports` will be stored on InfluxDB. You can watch them in a grafana by using the [following guide](../guides/grafana.md).
+    Your `PowerReports` will be stored on InfluxDB. You can watch them in a grafana by using the [following tutorial](../grafana/grafana.md).
 
 ???+ tip "Using shortcuts for parameters' names"
     You use `-` instead of `--`.
 
 # Auto-config Script
 
-This script detects the frequencies (assuming that the language of your Linux Distribution is english) of your CPU and use them to provide a
+This script detects the frequencies (assuming that the language of your Linux Distribution is English) of your CPU and use them to provide a
 configuration file for SmartWatts.
 
 ```sh

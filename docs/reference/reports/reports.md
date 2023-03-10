@@ -143,7 +143,7 @@ Below you find an exemple of `PowerReport`:
 }
 ```
 
-## Procfs Report
+<!-- ## Procfs Report
 
 A `ProcfsReport` is used to transfer information about CPU usage of
 process.
@@ -167,4 +167,4 @@ Below you find an exemple of `ProcfsReport`:
   },
   "global_cpu_usage": 27.610000000000014
 }
-```
+-->
