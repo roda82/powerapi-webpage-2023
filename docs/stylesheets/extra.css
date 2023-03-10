@@ -56,13 +56,13 @@
 
 .grid-container {
  display: inline-grid;
- grid-template-columns: auto auto auto;
+ /*grid-template-columns: auto auto auto;*/
  padding: 10px;
  column-gap: 10px;
- width: 100%;
- max-width: 61rem;
- margin-right: auto;
- margin-left: auto;
+ /*width: 100%;*/
+ /*max-width: 61rem;*/
+ /*margin-right: auto;
+ margin-left: auto;*/
 }
 
 
@@ -82,4 +82,8 @@
   flex: 1;
   align-items: center;
   justify-content: center;
+}
+
+@media (min-width: 900px) {
+  .grid-container { grid-template-columns: repeat(3, 1fr); }
 }
