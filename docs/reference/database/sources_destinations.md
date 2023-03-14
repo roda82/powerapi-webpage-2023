@@ -124,9 +124,8 @@ The list of parameters you have to provide are:
 
 | Parameter     | Type    | CLI shortcut  | Default Value | Description                                                                   |
 | ------------- | -----   | ------------- | ------------- | ------------------------------------                                          |
-|`files`(Source)| string  | `f`           | N/A           | The list of input CSV files with the format file1,file2,file3...              |
-|`directory` (Destination, `uri` for `HWPCSensor`)| string        | `d` (`U` for `HWPCSensor`)          | N/A           | The directory where output CSV files will be written          |
-|`collection`   | string | `c`           | N/A                                                  | The name of the collection inside `db`. This parameter is not used by `HWPCSensor`  |
+|`files`(Source)| string  | `f`           | Empty list           | The list of input CSV files with the format file1,file2,file3...              |
+|`directory` (Destination, `uri` for `HWPCSensor`)| string        | `d` (`U` for `HWPCSensor`)          | Current directory           | The directory where output CSV files will be written          |
 |`name`         | string | `n`           | `"puller_csv"` (Source), `"pusher_csv"` (Destination)| The related puller/pusher name. This parameter is not used by `HWPCSensor`                 |
 |`model`        | string | `m`           | `"HWPCReport"` (Source), `"PowerReport"` (Destination)   | The Report type stored in CSV files. This parameter is not used by `HWPCSensor`     |
 

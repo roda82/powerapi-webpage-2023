@@ -5,7 +5,7 @@ performance counter and the power consumption of CPU.
 
 HWPC Sensor uses the RAPL (Running Average Power Limit) technology to monitor CPU
 power consumption. This technology is only available on **Intel Sandy Bridge**
-architecture or **higher**.
+architecture or **newer**. It is also available on **AMD Zen (1,2,34)**. **Power/ARM/RISCV are not supported** architectures.
 
 In particular, it exploits the `perf` API of the **Linux kernel**. It is only available on Linux
 and need to have **root access** to be used.
@@ -72,7 +72,20 @@ The table below shows the different parameters related to the Sensor Configurati
 |`events`     | `string`   | `e`           | -                                             | List of events to be monitored. As CLI parameter, each event is indicated with `e`                    |
 |`monitoring_type`     | `string` (`MONITOR_ONE_CPU_PER_SOCKET`, `MONITOR_ALL_CPU_PER_SOCKET` )    | `o` (flag)          |  `MONITOR_ALL_CPU_PER_SOCKET`                                             | The monitoring type. If `o` is specified as CLI parameter, `MONITOR_ONE_CPU_PER_SOCKET` is used as type   
 
-### Running the Formula with a Configuration File
+### Events
+
+Table below depicts the different group events for comptible Intel and AMD architectures.
+
+| Architectures                | Group   | Events        |
+| -------------               | -----   | ------------- |
+|Intel Sandy Bridge and newer, AMD Zen (1,2,3,4)  | `rapl`  | `RAPL_ENERGY_PKG`|
+|Intel Sandy Bridge and newer, AMD Zen (1,2,3,4)  | `msr`  | `TSC`, `APERF`, `MPERF`|
+|Intel Sandy Bridge through Broadwell | `core` | `CPU_CLK_THREAD_UNHALTED:REF_P`, `CPU_CLK_THREAD_UNHALTED:THREAD_P`, `LLC_MISSES`,`INSTRUCTIONS_RETIRED`|
+|Intel Skylake and newer | `core` | `CPU_CLK_UNHALTED:REF_P`, `CPU_CLK_UNHALTED:THREAD_P`, `LLC_MISSES`,`INSTRUCTIONS_RETIRED`|
+|AMD Zen (1,2,3,4)| `core`| `CYCLES_NOT_IN_HALT`, `RETIRED_INSTRUCTIONS` , `RETIRED_UOPS`|
+
+
+### Running the Sensor with a Configuration File
 
 ```json
 {
@@ -130,7 +143,7 @@ Once you have your configuration file, run HWPCSensor using one of the following
     ./hwpc-sensor --config-file config_file.json
     ```
 
-### Running the Formula via CLI parameters
+### Running the Sensor via CLI parameters
 
 In order to run the Sensor without a configuration file, run HWPCSensor using one of the following command lines, depending on the installation you use:
 

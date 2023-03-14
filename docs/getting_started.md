@@ -20,7 +20,7 @@ script](script/rapl_install.sh) in a Terminal.
 The script explains what it will do and then pauses before it does it.
 
 Please notice that you need a **Linux distribution** in order to use the HWPC Sensor installed by the script as
-well as a **comptible Intel** or **AMD Processor**. HWPC Sensor will **not work on a Virtual Machine**. Howerver, you can install the Formula by hand in a Virtual Machine if need it.
+well as a **comptible Intel** (Sandy Bridge and newer) or **AMD Processor** (Zen). **Power/ARM/RISCV are not supported** architectures. HWPC Sensor will **not work on a Virtual Machine**. However, you can install the Formula by hand in a Virtual Machine if need it.
 
 ## **SmartWatts Formula**
 
@@ -35,7 +35,7 @@ script](script/smartwatts_install.sh) in a Terminal.
 The script explains what it will do and then pauses before it does it.
 
 Please notice that you need a **Linux distribution** in order to use the HWPC Sensor installed by the script as
-well as a **comptible Intel** or **AMD Processor**. HWPC Sensor will **not work on a Virtual Machine**. Howerver, you can install the Formula by hand in a Virtual Machine if need it.
+well as a **comptible Intel** (Sandy Bridge and newer) or **AMD Processor** (Zen). **Power/ARM/RISCV are not supported** architectures. HWPC Sensor will **not work on a Virtual Machine**. However, you can install the Formula by hand in a Virtual Machine if need it.
 
 
 

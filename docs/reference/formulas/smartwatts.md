@@ -4,14 +4,14 @@ SmartWatts is a software-defined power meter based on the PowerAPI toolkit.
 SmartWatts is a configurable software that can estimate the power consumption of
 software in real-time.
 SmartWatts need to receive several metrics provided by
-[HWPC Sensor](https://github.com/powerapi-ng/hwpc-sensor) :
+[HWPC Sensor](../sensors/hwpc-sensor.md#events) :
 
 - The Running Average Power Limit (`RAPL`)
 - `TSC`
 - `APERF`
 - `MPERF`
-- `CPU_CLK_THREAD_UNHALTED:REF_P` (or `CPU_CLK_UNHALTED:REF_P`)
-- `CPU_CLK_THREAD_UNHALTED:THREAD_P`(or `CPU_CLK_UNHALTED:REF_P`)
+- `CPU_CLK_THREAD_UNHALTED:REF_P` (Sandy Bridge through Broadwell) or `CPU_CLK_UNHALTED:REF_P` (Skylake and newer)
+- `CPU_CLK_THREAD_UNHALTED:THREAD_P` (Sandy Bridge through Broadwell) or `CPU_CLK_UNHALTED:THREAD_P` (Skylake and newer)
 - `LLC_MISSES`
 - `INSTRUCTIONS_RETIRED`
 
@@ -150,7 +150,7 @@ the installation you used:
 === "Pip"
 
     ```sh
-    python3 -m smartwatts \
+    python -m smartwatts \
     --verbose \
     --input mongodb --model HWPCReport --uri mongodb://127.0.0.1 --db test --collection prep \
     --output influxdb --model PowerReport --uri 127.0.0.1 --port 8086 --db test_result \
