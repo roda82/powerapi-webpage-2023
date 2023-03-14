@@ -5,6 +5,10 @@ hide:
 ---
 # Publications
 
+- **[Evaluating the Impact of Java Virtual Machines on Energy Consumption](https://hal.inria.fr/hal-03275286v1)**: Z. Ournani, MC. Belgaid, R. Rouvoy, P. Rust, J. Penhoat. _15th ACM/IEEE International Symposium on Empirical Software Engineering and Measurement_ (ESEM). October 2021, Bari, Italy.
+- **[SelfWatts: On-the-fly Selection of Performance Events to Optimize Software-defined Power Meters](https://hal.inria.fr/hal-03173410v1)**: G. Fieni, R. Rouvoy, L. Seiturier. _20th IEEE/ACM International Symposium on Cluster, Cloud and Internet Computing_ (CCGRID 2021). May 2021, Melbourne, Australia.
+- **[SmartWatts: Self-Calibrating Software-Defined Power Meter for Containers](https://hal.inria.fr/hal-02470128v1)**: G. Fieni, R. Rouvoy, L. Seiturier. _20th IEEE/ACM International Symposium on Cluster, Cloud and Internet Computing_ (CCGRID 2020). May 2020, Melbourne, Australia.
+- **[Taming Energy Consumption Variations in Systems Benchmarking](https://hal.inria.fr/hal-02403379v1)**: Z. Ournani, MC. Belgaid, R. Rouvoy, P. Rust, J. Penhoat, L. Seinturier. _11th ACM/SPEC International Conference on Performance Engineering_ (ICPE'2020). April 2020, Edmonton, Canada.
 - **[The Next 700 CPU Power Models](https://hal.inria.fr/hal-01827132v2)**: M. Colmant, R. Rouvoy, M. Kurpicz, A. Sobe, P. Felber, L. Seinturier. _Elsevier Journal of Systems and Software_ (JSS). 144(10):382-396, Elsevier.
 - **[WattsKit: Software-Defined Power Monitoring of Distributed Systems](https://hal.inria.fr/hal-01439889)**: M. Colmant, P. Felber, R. Rouvoy, L. Seinturier. _IEEE/ACM International Symposium on Cluster, Cloud and Grid Computing_ (CCGrid). April 2017, Spain, France. pp.1-14.
 - **[Process-level Power Estimation in VM-based Systems](https://hal.inria.fr/hal-01130030)**: M. Colmant, M. Kurpicz, L. Huertas, R. Rouvoy, P. Felber, A. Sobe. _European Conference on Computer Systems_ (EuroSys). April 2015, Bordeaux, France. pp.1-14.
