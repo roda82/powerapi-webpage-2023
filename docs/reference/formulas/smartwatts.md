@@ -147,22 +147,6 @@ the installation you use:
 In order to run the Formula without a configuration file, run SmartWatts using one of the following command lines, depending on
 the installation you used:
 
-=== "Pip"
-
-    ```sh
-    python -m smartwatts \
-    --verbose \
-    --input mongodb --model HWPCReport --uri mongodb://127.0.0.1 --db test --collection prep \
-    --output influxdb --model PowerReport --uri 127.0.0.1 --port 8086 --db test_result \
-    --cpu-frequency-base 19 \
-    --cpu-frequency-min 4 \
-    --cpu-frequency-max 42 \
-    --cpu-error-threshold 2.0 \
-    --disable-dram-formula \
-    --sensor-report-sampling-interval 1000 \
-    --real-time-mode false
-    ```
-
 === "Docker"
 
      ```sh
@@ -179,6 +163,24 @@ the installation you used:
      --sensor-report-sampling-interval 1000 \
      --real-time-mode false
      ```
+
+=== "Pip"
+
+    ```sh
+    python -m smartwatts \
+    --verbose \
+    --input mongodb --model HWPCReport --uri mongodb://127.0.0.1 --db test --collection prep \
+    --output influxdb --model PowerReport --uri 127.0.0.1 --port 8086 --db test_result \
+    --cpu-frequency-base 19 \
+    --cpu-frequency-min 4 \
+    --cpu-frequency-max 42 \
+    --cpu-error-threshold 2.0 \
+    --disable-dram-formula \
+    --sensor-report-sampling-interval 1000 \
+    --real-time-mode false
+    ```
+
+
 
 ???+ info "Estimations' Storage"
     Your `PowerReports` will be stored on InfluxDB. You can watch them in a grafana by using the [following tutorial](../grafana/grafana.md).
