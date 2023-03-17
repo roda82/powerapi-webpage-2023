@@ -30,7 +30,7 @@ Measuring Power Consumption of your Applications.
 :material-lightning-bolt-circle:{ .lg .middle } __PowerMeter as Software__
 ---
  You don't need any additional physical PowerMeter or hardware in order to estimate power consumption of your applications.
- PowerAPI toolkit allows you to use Software PowerMeters providing power consumption at different granularity levels: *global*, *virtual machine*, *container* *application*, *processus*, *code*.
+ PowerAPI toolkit allows you to use Software PowerMeters providing power consumption at different granularity levels: *global*, *virtual machine*, *container*, *application*, *processus*, *code*.
   </div>
   <div class="grid-item card container" markdown>
 :fontawesome-solid-arrow-up-right-from-square:{ .lg .middle } __Extensible__
