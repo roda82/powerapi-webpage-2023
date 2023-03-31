@@ -59,8 +59,8 @@ The table below shows the different parameters related to the Sensor Configurati
 |`frequency`                 | `int` | `f`             | `1000`                                            | The time in milliseconds between two reports                   |
 |`name`                 | `string` | `n`             | -                                            | Name of the sensor                   |
 |`cgroup_basepath`                 | `string` | `p`             | `/sys/fs/cgroup/perf_event`        |  The default base path for `cgroups`                   |
-|`system`                 | `string` (group's name) | `s`             | -                                            | A system group with a monitoring type and a list of system events (cf. [`system` Group Parameters](hwpc-sensor.md#system-and-container-groups-parameters))                   |
-|`container`                 | `string` (group's name) | `c`          | -                                            | A group with a monitoring type and a list of  events (cf. [`system` Group Parameters](hwpc-sensor.md#system-and-container-groups-parameters)                   |
+|`system`                 | `dict` | `s`             | -                                            | A system group with a monitoring type and a list of system events (cf. [`system` Group Parameters](hwpc-sensor.md#system-and-container-groups-parameters))                   |
+|`container`                 | `dict` | `c`          | -                                            | A group with a monitoring type and a list of  events (cf. [`system` Group Parameters](hwpc-sensor.md#system-and-container-groups-parameters))                   |
 |`output`                 | Destination | `r`             | ` csv`                                            | The Destination used as output. The Sensor only supports [MongoDB](../database/sources_destinations.md#mongodb) (`mongodb`) and [CSV](../database/sources_destinations.md#csv) (`csv`) as Destination.                    |
 
 

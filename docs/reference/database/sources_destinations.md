@@ -5,6 +5,17 @@ A PowerAPI Formula uses Sources and Destinations in order to retrieve metrics an
 For each Source/Destination the parameters to specify are differents. For each one of them,
 its parameters are specified in following sections.
 
+## Summary
+| Name     | Source   | Destination  | CLI `input`/`ouput` parameter value                                      | JSON `type` tag parameter value                             |
+| ------------- | -----  | ------------- | -------------                                      | ------------------------------------    |
+| MongoDB | Yes  | Yes | mongodb                                      | mongodb    |
+| InfluxDB | No  | Yes | influxdb                                      | influxdb    |
+| InfluxDB2 | No  | Yes | influxdb2                                      | influxdb2    |
+| CSV | Yes  | Yes | csv                                      | csv    |
+| Socket | Yes  | No | socket                                      | socket    |
+| File Database | Yes  | Yes | filedb                                      | filedb    |
+| Prometheus | No  | Yes | prom                                      | prom    |
+
 ## MongoDB
 
 If you want to use a Mongo Database in your Formula, you have to specify
@@ -231,13 +242,3 @@ Below you find an example of configuration excerpt for this kind of Destination.
   "metric_name": test
 }
 ```
-## Summary
-| Name     | Source   | Destination  | CLI `input`/`ouput` parameter value                                      | JSON `type` tag parameter value                             |
-| ------------- | -----  | ------------- | -------------                                      | ------------------------------------    |
-| MongoDB | Yes  | Yes | mongodb                                      | mongodb    |
-| InfluxDB | No  | Yes | influxdb                                      | influxdb    |
-| InfluxDB2 | No  | Yes | influxdb2                                      | influxdb2    |
-| CSV | Yes  | Yes | csv                                      | csv    |
-| Socket | Yes  | No | socket                                      | socket    |
-| File Database | Yes  | Yes | filedb                                      | filedb    |
-| Prometheus | No  | Yes | prom                                      | prom    |
